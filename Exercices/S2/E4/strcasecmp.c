@@ -7,7 +7,7 @@ int strcasecmp(const char *s1, const char *s2) {
             if ((int)s1[pos] == (int)s2[pos]){
                 pos ++;
             }
-            else if (((int)s1[pos] + 20) == (int)s2[pos] || ((int)s1[pos] - 20) == (int)s2[pos]){
+            else if (((int)s1[pos] + 32) == (int)s2[pos] || ((int)s1[pos] - 32) == (int)s2[pos]){
                 pos ++;
             }
             else if ((int)s1[pos] > (int)s2[pos]){
