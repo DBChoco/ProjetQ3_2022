@@ -31,10 +31,15 @@ typedef struct list {
 * @return: returns the pointer to the newly created node, or NULL if an error occured.
 */
 node_t *init_node(int value) {
-    node_t node;
-    node.value = value;
-    node.next = NULL;
-    return &node;
+    node_t *pointer = malloc(sizeof(node_t));
+    if (pointer == NULL){
+        return pointer;
+    }
+    else{
+        pointer->value = value;
+        pointer->next = NULL;
+        return pointer;
+    }
 }
 
 /*
@@ -47,22 +52,22 @@ node_t *init_node(int value) {
 */
 int add_node(list_t *list, int value) {
     node_t *node = init_node(value);
-    list->size ++;
-    node_t *ola;
-    if (list->first != NULL){
-        ola = list->first;
-        while (ola->next != NULL){
-            ola = ola->next;
+    if (node != NULL){
+        list->size = list->size + 1;
+        node_t *ola;
+        if (list->first != NULL){
+            ola = list->first;
+            while (ola->next == NULL){
+                ola = ola->next;
+            }
+            ola->next = node;
+            return 0;
         }
-        ola->next = node;
-        return 0;
+        else {
+            return 1;
+        }
     }
     else {
         return 1;
     }
-}
-
-
-int main(int argc, char *argv[]) {  
-    printf("ola");
 }

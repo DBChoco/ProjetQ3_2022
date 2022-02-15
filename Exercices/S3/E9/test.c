@@ -56,23 +56,28 @@ int testne(int a, int b){
 }
 
 int main(int argc, char *argv[]) {  
+    int res = 0;
     if (argv[2][1] == 'e' && argv[2][2] == 'q'){
-        return testeq(*argv[1], *argv[3]);
+        res = testeq(*argv[1], *argv[3]);
     }
-    if (argv[2][1] == 'g' && argv[2][2] == 'e'){
-        return testge(*argv[1], *argv[3]);
+    else if (argv[2][1] == 'g' && argv[2][2] == 'e'){
+        res =  testge(*argv[1], *argv[3]);
     }
-    if (argv[2][1] == 'g' && argv[2][2] == 't'){
-        return testgt(*argv[1], *argv[3]);
+    else if (argv[2][1] == 'g' && argv[2][2] == 't'){
+        res = testgt(*argv[1], *argv[3]);
     }
-    if (argv[2][1] == 'l' && argv[2][2] == 'e'){
-        return testle(*argv[1], *argv[3]);
+    else if (argv[2][1] == 'l' && argv[2][2] == 'e'){
+        res =  testle(*argv[1], *argv[3]);
     }
-    if (argv[2][1] == 'l' && argv[2][2] == 't'){
-        return testlt(*argv[1], *argv[3]);
+    else if (argv[2][1] == 'l' && argv[2][2] == 't'){
+        res =  testlt(*argv[1], *argv[3]);
     }
-    if (argv[2][1] == 'n' && argv[2][2] == 'e'){
-        return testne(*argv[1], *argv[3]);
+    else if (argv[2][1] == 'n' && argv[2][2] == 'e'){
+        res =  testne(*argv[1], *argv[3]);
     }
-    EXIT_SUCCESS;
+    else {
+        res =  0;
+    }
+    printf("%d  \n", res);
+    return res;
 }
